@@ -50,14 +50,14 @@ class HomeController extends Controller
           $partners = Partner::all()
                       ->take(8);
     
-        return view('welcome', compact('slides','featured','deals','latests', 'partners'));
+        return view('home', compact('slides','featured','deals','latests', 'partners'));
 
 
     }
 
 
-    public function show()
+    public function listing()
     {
-      # code...
+
     }
 }
