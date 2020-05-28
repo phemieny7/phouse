@@ -17,6 +17,7 @@ class CreateVideosTable extends Migration
             $table->increments('id');
             $table->integer('property_id');
             $table->string('name');
+            $table->string('virtual');
             $table->timestamps();
         });
     }

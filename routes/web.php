@@ -18,3 +18,9 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
+Route::get('/listing', 'HomeController@listing');
+
+Route::get('/property/{id}', 'HomeController@show');
+
+ // Route::get('/property', 'HomeController@trial');

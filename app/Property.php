@@ -7,22 +7,33 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
 	
-   public $directory = "images/";
+   public $directory = "/images/";
+
+   
 
    public function photo()
    {
    	 return $this->hasOne('App\Photo');
    }
 
+  public function video()
+   {
+     return $this->hasOne('App\Video');
+   }
+
+
+
    public function category()
    {
    	 return $this->belongsTo('App\Category');
    }
 
+
    public function feature()
    {
    	 return $this->belongsTo('App\Feature');
    }
+
 
    public function status()
    {     
@@ -33,6 +44,7 @@ class Property extends Model
    {     
      return $this->belongsTo('App\Type');
    }
+
 
    public function getPhotoIdAttribute()
    {

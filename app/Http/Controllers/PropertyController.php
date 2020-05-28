@@ -46,7 +46,9 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        $property = Property::find($property);
+
+        return view('property', compact('property'));
     }
 
     /**

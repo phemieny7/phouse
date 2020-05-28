@@ -17,6 +17,9 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/range-Slider.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/search.css') }}">
+<link rel="stylesheet" href="../examples/mediaelementplayer.css" />
+<script src="https://folk.uib.no/jvi041/player/js/mejs-2.16.3/mejs-skins.css"></script>
+
 <link rel="icon" href="{{ asset('images/icon.png') }}">
 </head>
 <body>
@@ -69,7 +72,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-12">
-          <div class="logo"><a href="{{ url('/') }}"><img title="Homestate" alt="" src="{{$foo->photo_id.''. $foo->logo}}"></a></div>
+          <div class="logo"><a href="{{ url('/') }}"><img title="Homestate" alt="" src="{{asset("$foo->photo_id$foo->logo")}}"></a></div>
         </div>
         <!--Info Box-->
         <div class="col-md-9 col-sm-12 right">
@@ -121,7 +124,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand sticky_logo" href="{{ url('/') }}"><img src="{{$foo->photo_id.''. $foo->logo2}}" class="logo" alt=""></a>
+            <a class="navbar-brand sticky_logo" href="{{ url('/') }}"><img src="{{asset("$foo->photo_id.''. $foo->logo2")}}" class="logo" alt=""></a>
           </div> <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
@@ -135,10 +138,7 @@
                             <h5 class="title">PROPERTIES LIST</h5>
                             <div class="content">
                               <ul class="menu-col">
-                                <li><a href="listing1.html">Properties List</a></li>
-                                <li><a href="listing2.html">Search by City</a></li>
-                                <li><a href="listing5.html">Search by Category</a></li>
-                                <li><a href="listing3.html">Search by Type</a></li>
+                                <li><a href="{{ url('/listing') }}">Properties List</a></li>
                               </ul>
                             </div>
                           </div>
@@ -156,7 +156,7 @@
                                     <img src="{{$prop->photo_id .''. $photo_id[0]->featured}}" alt="Featured Property" height="158px" width="272px"> 
                                     <span class="nav_tag yellow text-uppercase">For {{ucfirst($prop->status->name)}}</span>
                                   </div>
-                                  <h4><a href="property_detail1.html">{{$slide->title}}</a></h4>
+                                  <h4><a href="{{ url('/property/'.$prop->id ) }}">{{$prop->title}}</a></h4>
                                   <p>{{$prop->address}}</p>
                                 </div>
                                 @endforeach
@@ -209,8 +209,6 @@
 
 @yield ('feature')
 
-
-
 @yield ('deals')
 
 
@@ -231,7 +229,7 @@
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-          <a href="javascript:void(0)" class="logo bottom30"><img src="{{$foo->photo_id.''. $foo->logo2}}" alt="logo"></a>
+          <a href="javascript:void(0)" class="logo bottom30"><img src="{{asset("$foo->photo_id$foo->logo2")}}"" alt="logo"></a>
           <p class="bottom15">{{$foo->footer}}
           </p>
          
@@ -259,21 +257,21 @@
         <div class="footer_panel bottom30">
           <h4 class="bottom30">Latest News</h4>
           <div class="media">
-            <a class="media-object"><img src="images/footer-news1.png" alt="news"></a>
+            <a class="media-object"><img src="{{asset("images/footer-news1.png")}}" alt="news"></a>
             <div class="media-body">
               <a href="#.">Nearest mall in high tech Goes your villa</a>
               <span><i class="icon-clock4"></i>Feb 22, 2017</span>
             </div>
           </div>
           <div class="media">
-            <a class="media-object"><img src="images/footer-news1.png" alt="news"></a>
+            <a class="media-object"><img src="{{asset("images/footer-news1.png")}}" alt="news"></a>
             <div class="media-body">
               <a href="#.">Nearest mall in high tech Goes your villa</a>
               <span><i class="icon-clock4"></i>Feb 22, 2017</span>
             </div>
           </div>
           <div class="media">
-            <a class="media-object"><img src="images/footer-news1.png" alt="news"></a>
+            <a class="media-object"><img src="{{asset("images/footer-news1.png")}}" alt="news"></a>
             <div class="media-body">
               <a href="#.">Nearest mall in high tech Goes your villa</a>
               <span><i class="icon-clock4"></i>Feb 22, 2017</span>
@@ -305,34 +303,40 @@
           <p>Copyright &copy; 2020 <span>Phouse</span>. All rights reserved.</p>
         </div>
         <div class="col-md-5 text-right">
-          <p>Developed By<a href="javascript:void(0)"></a></p>
+          <p>Developed By <a href="javascript:void(0)">Perfcreg</a></p>
         </div>
       </div>
     </div>
   </div>
 </div>
-<script src="js/jquery-2.1.4.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/bootsnav.js"></script>
-<script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/jquery.appear.js"></script>
-<script src="js/jquery-countTo.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
-<script src="js/jquery.cubeportfolio.min.js"></script>
-<script src="js/range-Slider.min.js"></script>
-<script src="js/owl.carousel.min.js"></script> 
-<script src="js/selectbox-0.2.min.js"></script>
-<script src="js/zelect.js"></script>
-<script src="js/jquery.fancybox.js"></script>
-<script src="js/jquery.themepunch.tools.min.js"></script>
-<script src="js/jquery.themepunch.revolution.min.js"></script>
-<script src="js/revolution.extension.layeranimation.min.js"></script>
-<script src="js/revolution.extension.navigation.min.js"></script>
-<script src="js/revolution.extension.parallax.min.js"></script>
-<script src="js/revolution.extension.slideanims.min.js"></script>
-<script src="js/revolution.extension.video.min.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{ asset('js/jquery-2.1.4.js') }}"></script> 
+<script src="{{ asset('js/bootstrap.min.js') }}"></script> 
+<script src="{{ asset('js/bootsnav.js') }}"></script>
+<script src="{{ asset('js/jquery.parallax-1.1.3.js') }}"></script>
+<script src="{{ asset('js/jquery.appear.js') }}"></script>
+<script src="{{ asset('js/jquery-countTo.js') }}"></script>
+<script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>
+<script src="{{ asset('js/range-Slider.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script> 
+<script src="{{ asset('js/selectbox-0.2.min.js') }}"></script>
+<script src="{{ asset('js/zelect.js') }}"></script>
+<script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('js/jquery.themepunch.tools.min.js') }}"></script>
+<script src="{{ asset('js/jquery.themepunch.revolution.min.js') }}"></script>
+<script src="{{ asset('js/revolution.extension.layeranimation.min.js') }}"></script>
+<script src="{{ asset('js/revolution.extension.navigation.min.js') }}"></script>
+<script src="{{ asset('js/revolution.extension.parallax.min.js') }}"></script>
+<script src="{{ asset('js/revolution.extension.slideanims.min.js') }}"></script>
+<script src="{{ asset('js/revolution.extension.video.min.js') }}"></script>
+<script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<script src="http://mediaelementjs.com/js/mejs-2.11.2/mediaelement-and-player.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+    $('#player1').mediaelementplayer();
+});
+</script>
 </body>
 </html>
 

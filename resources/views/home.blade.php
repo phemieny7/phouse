@@ -210,7 +210,7 @@
         <div class="property_meta">
           <span><i class="icon-select-an-objecto-tool"></i>{{$featured->square_foot}} sq ft</span> <span><i class="icon-bed"></i>{{$featured->rooms}} Bedrooms</span> <span><i class="icon-safety-shower"></i>{{$featured->bathroom}} Bathroom</span> <span><i class="icon-old-television"></i>TV Lounge</span> <span><i class="icon-garage"></i>{{$featured->garage}} Garage</span> 
         </div>
-        <a href="property_detail1.html" class="uppercase btn-blue border_radius space30">view all detail</a>
+        <a href="{{ url('/property/'.$featured->id ) }}" class="uppercase btn-blue border_radius space30">view all detail</a>
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="feature_main">
@@ -248,12 +248,12 @@
           $photo_id = json_decode($photo);
           @endphp
           
-          <div class="image"><a href="#."> <img src="{{$deal->photo_id.''.$photo_id[0]->featured }}" alt="Featured Property" style="width: 364px; height: 254px"></a> 
+          <div class="image"><a href="{{ URL('/property/'.$deal->id )}}"> <img src="{{$deal->photo_id.''.$photo_id[0]->featured }}" alt="Featured Property" style="width: 364px; height: 254px"></a> 
             <span class="price default_clr">For Rent</span>
           </div>
           <div class="proerty_content">
             <div class="proerty_text">
-              <h3 class="bottom15"><a href="#.">{{$deal->title}}</a></h3>
+              <h3 class="bottom15"><a href="{{ url('/property/'.$deal->id ) }}">{{$deal->title}}</a></h3>
               <p>{{ substr($deal->description, 0, 40)}}......</p>
               <h4 class="top15"> &#8358; {{$deal->price}} Per {{$deal->type->name}} - <small>{{$deal->category->name}}</small></h4>
             </div>
@@ -302,14 +302,14 @@
                 $photo = $latest->photo->name;
                 $photo_id = json_decode($photo);
               @endphp
-            <div class="image"> <a href="#."><img src="{{$latest->photo_id .''. $photo_id[0]->featured}}" alt="latest property" class="img-responsive" style="width: 560px; height: 310px"></a> </div>
+            <div class="image"> <a href="{{ url('/property/'.$latest->id ) }}"><img src="{{$latest->photo_id .''. $photo_id[0]->featured}}" alt="latest property" class="img-responsive" style="width: 560px; height: 310px"></a> </div>
             <div class="price default_clr clearfix bottom20">
               <span class="tag pull-left">For {{ucfirst($latest->status->name)}}</span>
               <h4 class="pull-right">&#8358;{{$latest->price }} - {{$latest->type->name}} - <small>{{$latest->category->name}}</small></h4>
             </div>
             <div class="proerty_content">
               <div class="proerty_text">
-                <h3 class="bottom15"> <a href="#.">{{$latest->title}}</a></h3>
+                <h3 class="bottom15"> <a href="{{ url('/property/'.$latest->id ) }}.">{{$latest->title}}</a></h3>
                 <p>{{$latest->description}}</p>
               </div>
               <div class="favroute clearfix">

@@ -1,12 +1,15 @@
-<?php 
-  
-// Declare a json string 
-$json = '{"g":7, "e":5, "e":5, "k":11, "s":19}'; 
-  
-// Use json_decode() function to 
-// decode a string 
-$decode = json_decode($json); 
-  
-echo $decode->g;
-  
-?> 
+ <?php
+$cars = [1,2,3,4,5,6];
+
+$trial = array_push($cars, "Bently", "ferarri");
+$arrlength = count($cars);
+
+
+
+for($x = 0; $x < $arrlength; $x++) {
+  echo $cars[$x];
+  echo "<br>";
+}
+
+echo $cars[0];
+?>
