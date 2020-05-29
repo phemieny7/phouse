@@ -10,8 +10,9 @@
           @php
           $photo = $slide->photo->name;
           $photo_id = json_decode($photo);
+          $feature = $photo_id[0]->featured;
           @endphp
-        <img src="{{$slide->photo_id .''. $photo_id[0]->featured}}" alt="" data-bgposition="center center" data-bgfit="cover">
+        <img src="{{asset("$slide->photo_id$feature")}}" alt="" data-bgposition="center center" data-bgfit="cover">
         <div class="black-caption tp-caption tp-resizeme"
          data-start="1300"
           data-x="['left','left','center','center']" data-hoffset="['0','0','0','15']" 
@@ -217,8 +218,9 @@
           @php
           $photo = $featured->photo->name;
           $photo_id = json_decode($photo);
+          $image = $photo_id[0]->featured;
           @endphp
-          <img src="{{$featured->photo_id .''. $photo_id[0]->featured}}" alt="featured" class="img-responsive" style="width: 540px; height: 360px">
+          <img src="{{asset("$featured->photo_id$image")}}" alt="featured" class="img-responsive" style="width: 540px; height: 360px"/>
           <div class="bottom clearfix">
             <span class="pull-left">For Rent</span>
             <h4 class="pull-right">&#8358; {{$featured->price}} Per Month - <small>Family Home</small></h4>
@@ -246,9 +248,10 @@
           @php
           $photo = $deal->photo->name;
           $photo_id = json_decode($photo);
+          $image = $photo_id[0]->featured;
           @endphp
           
-          <div class="image"><a href="{{ URL('/property/'.$deal->id )}}"> <img src="{{$deal->photo_id.''.$photo_id[0]->featured }}" alt="Featured Property" style="width: 364px; height: 254px"></a> 
+          <div class="image"><a href="{{ URL('/property/'.$deal->id )}}"> <img src="{{asset("$deal->photo_id$image")}}" alt="Featured Property" style="width: 364px; height: 254px"></a> 
             <span class="price default_clr">For Rent</span>
           </div>
           <div class="proerty_content">
@@ -301,8 +304,9 @@
              @php
                 $photo = $latest->photo->name;
                 $photo_id = json_decode($photo);
+                $image = $photo_id[0]->featured;
               @endphp
-            <div class="image"> <a href="{{ url('/property/'.$latest->id ) }}"><img src="{{$latest->photo_id .''. $photo_id[0]->featured}}" alt="latest property" class="img-responsive" style="width: 560px; height: 310px"></a> </div>
+            <div class="image"> <a href="{{ url('/property/'.$latest->id ) }}"><img src="{{asset("$latest->photo_id$image")}}" alt="latest property" class="img-responsive" style="width: 560px; height: 310px"></a> </div>
             <div class="price default_clr clearfix bottom20">
               <span class="tag pull-left">For {{ucfirst($latest->status->name)}}</span>
               <h4 class="pull-right">&#8358;{{$latest->price }} - {{$latest->type->name}} - <small>{{$latest->category->name}}</small></h4>
@@ -351,7 +355,7 @@
       <div id="partner-slider" class="owl-carousel">
         @foreach($partners as $partner)
         <div class="item">
-          <img src="{{$partner->photo}}" alt="{{$partner->name}}">
+          <img src="{{asset("$partner->photo")}}" alt="{{$partner->name}}">
         </div>
         @endforeach
       </div>

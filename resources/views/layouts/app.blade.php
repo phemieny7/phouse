@@ -17,8 +17,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/range-Slider.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/search.css') }}">
-<link rel="stylesheet" href="../examples/mediaelementplayer.css" />
-<script src="https://folk.uib.no/jvi041/player/js/mejs-2.16.3/mejs-skins.css"></script>
+<link rel="stylesheet" href="https://folk.uib.no/jvi041/player/js/mejs-2.16.3/mejs-skins.css"/>
 
 <link rel="icon" href="{{ asset('images/icon.png') }}">
 </head>
@@ -124,7 +123,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand sticky_logo" href="{{ url('/') }}"><img src="{{asset("$foo->photo_id.''. $foo->logo2")}}" class="logo" alt=""></a>
+            <a class="navbar-brand sticky_logo" href="{{ url('/') }}"><img src="{{asset("$foo->photo_id$foo->logo2")}}" class="logo" alt=""/></a>
           </div> <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
