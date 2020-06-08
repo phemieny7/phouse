@@ -15,22 +15,22 @@
         <img src="{{asset("$slide->photo_id$feature")}}" alt="" data-bgposition="center center" data-bgfit="cover">
         <div class="black-caption tp-caption tp-resizeme"
          data-start="1300"
-          data-x="['left','left','center','center']" data-hoffset="['0','0','0','15']" 
-          data-y="['center','center','center','center']" data-voffset="['0','0','0','0']" 
-          data-responsive_offset="on" 
+          data-x="['left','left','center','center']" data-hoffset="['0','0','0','15']"
+          data-y="['center','center','center','center']" data-voffset="['0','0','0','0']"
+          data-responsive_offset="on"
           data-transform_idle="o:1;"
-          data-transform_in="x:-50px;opacity:0;s:2000;e:Power3.easeOut;" 
+          data-transform_in="x:-50px;opacity:0;s:2000;e:Power3.easeOut;"
           data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;">
           <div class="price">{{ucfirst($slide->status->name)}}</div>
           <h2>{{$slide->title}}</h2>
           <p class="bottom30">{{ substr($slide->description, 0, 40)}}....
           </p>
-          <div class="property_meta"> 
-            <span><i class="icon-select-an-objecto-tool"></i>{{$slide->square_foot}} sq ft</span> 
-            <span><i class="icon-bed"></i>{{$slide->rooms}} Bedroom's</span> 
-            <span><i class="icon-pool-stairs"></i>Type: {{$slide->category->name}}</span> 
+          <div class="property_meta">
+            <span><i class="icon-select-an-objecto-tool"></i>{{$slide->square_foot}} sq ft</span>
+            <span><i class="icon-bed"></i>{{$slide->rooms}} Bedroom's</span>
+            <span><i class="icon-pool-stairs"></i>Type: {{$slide->category->name}}</span>
           </div>
-          <div class="property_meta bottom30"> 
+          <div class="property_meta bottom30">
             <span><i class="icon-garage"></i>{{$slide->garage}} Garage</span>
             <span><i class="icon-safety-shower"></i>{{$slide->bathroom}} bathrooms</span>
           </div>
@@ -188,28 +188,19 @@
         <h4 class="bottom30">{{$featured->address}}</h4>
         <p class="bottom30">{{$featured->description}}</p>
         <div class="row">
-           {{-- @foreach($feature->) --}}
           <div class="col-md-6 col-sm-6">
             <ul class="feature_list">
-              @php
-                $yes1 = $featured->features;
-                $yes2 = json_decode($yes1); 
-              @endphp
-              <li>{{$yes2[0]->f1}}</li>
-              <li>{{$yes2[0]->f2}}</li>
+
             </ul>
           </div>
 
           <div class="col-md-6 col-sm-6">
-            <ul class="feature_list">
-              <li>{{$yes2[0]->f3}}</li>
-              <li>{{$yes2[0]->f4}}</li>
+            
             </ul>
           </div>
-         {{--  @endforeach --}}
         </div>
         <div class="property_meta">
-          <span><i class="icon-select-an-objecto-tool"></i>{{$featured->square_foot}} sq ft</span> <span><i class="icon-bed"></i>{{$featured->rooms}} Bedrooms</span> <span><i class="icon-safety-shower"></i>{{$featured->bathroom}} Bathroom</span> <span><i class="icon-old-television"></i>TV Lounge</span> <span><i class="icon-garage"></i>{{$featured->garage}} Garage</span> 
+          <span><i class="icon-select-an-objecto-tool"></i>{{$featured->square_foot}} sq ft</span> <span><i class="icon-bed"></i>{{$featured->rooms}} Bedrooms</span> <span><i class="icon-safety-shower"></i>{{$featured->bathroom}} Bathroom</span> <span><i class="icon-old-television"></i>TV Lounge</span> <span><i class="icon-garage"></i>{{$featured->garage}} Garage</span>
         </div>
         <a href="{{ url('/property/'.$featured->id ) }}" class="uppercase btn-blue border_radius space30">view all detail</a>
       </div>
@@ -250,8 +241,8 @@
           $photo_id = json_decode($photo);
           $image = $photo_id[0]->featured;
           @endphp
-          
-          <div class="image"><a href="{{ URL('/property/'.$deal->id )}}"> <img src="{{asset("$deal->photo_id$image")}}" alt="Featured Property" style="width: 364px; height: 254px"></a> 
+
+          <div class="image"><a href="{{ URL('/property/'.$deal->id )}}"> <img src="{{asset("$deal->photo_id$image")}}" alt="Featured Property" style="width: 364px; height: 254px"></a>
             <span class="price default_clr">For Rent</span>
           </div>
           <div class="proerty_content">
@@ -291,8 +282,8 @@
     <div class="row">
       <div class="col-xs-10">
         <h2 class="uppercase">latest Properties</h2>
-        <p class="heading_space"> We are proud to present to you some of the best homes, apartments, offices e.g. across Australia for affordable 
-          prices. 
+        <p class="heading_space"> We are proud to present to you some of the best homes, apartments, offices e.g. across Australia for affordable
+          prices.
         </p>
       </div>
     </div>

@@ -30,7 +30,7 @@ class HomeController extends Controller
       {
                $slides = Property::where('featured', 1)
                      ->orderBy('created_at', 'asc')
-                     ->take(4)
+                     ->take(1)
                      ->get();
 
                $featured = Property::where('featured', 1)
@@ -49,13 +49,13 @@ class HomeController extends Controller
 
                 $partners = Partner::all()
                             ->take(8);
-          
+
               return view('home', compact('slides','featured','deals','latests', 'partners'));
       }
 
 
       public function listing()
-      {  
+      {
             $listings = Property::where('status_id',1)
             ->orWhere('status_id',2)
             ->orWhere('status_id',3)
@@ -72,7 +72,7 @@ class HomeController extends Controller
                         ->take(4)
                         ->get();
 
-            
+
             return view('list', compact('listings','populars', 'features'));
       }
 
