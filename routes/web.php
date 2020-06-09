@@ -23,4 +23,4 @@ Route::get('/listing', 'HomeController@listing');
 
 Route::get('/property/{id}', 'HomeController@show');
 
- // Route::get('/property', 'HomeController@trial');
+Route::get('/admin', 'AdminController@index');

@@ -30,9 +30,9 @@
     <div class="location_indicator"></div>
   </div>
 </div>
- <!--Loader--> 
- 
- 
+ <!--Loader-->
+
+
 
 <!--Header-->
 <header class="layout_default">
@@ -48,8 +48,14 @@
             <li><a href="{{ url('/login') }}"><i class="icon-icons179"></i>Login / Register</a></li>
             @else
             <li><a href="favorite_properties.html"><i class="icon-icons43"></i>Favorites</a></li>
+            @php
+              $user = Auth::user();
+            @endphp
+
+            @if ($user->isAdmin() == true)
             <li><a href="submit_property.html"><i class="icon-icons215"></i>Submit Property</a></li>
             <li><a href="my_properties.html"><i class="icon-icons215"></i>My Property</a></li>
+            @endif
             <li><a href="profile.html"><i class="icon-icons230"></i>Profile</a></li>
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -109,7 +115,7 @@
           <div class="attr-nav">
             @php
                 $list = $foo->social;
-                $social = json_decode($list); 
+                $social = json_decode($list);
               @endphp
             <ul class="social_share clearfix">
               <li><a href="{{$social[0]->facebook}}" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -151,8 +157,8 @@
                                       $photo = $prop->photo->name;
                                       $photo_id = json_decode($photo);
                                     @endphp
-                                  <div class="image bottom15"> 
-                                    <img src="{{$prop->photo_id .''. $photo_id[0]->featured}}" alt="Featured Property" height="158px" width="272px"> 
+                                  <div class="image bottom15">
+                                    <img src="{{$prop->photo_id .''. $photo_id[0]->featured}}" alt="Featured Property" height="158px" width="272px">
                                     <span class="nav_tag yellow text-uppercase">For {{ucfirst($prop->status->name)}}</span>
                                   </div>
                                   <h4><a href="{{ url('/property/'.$prop->id ) }}">{{$prop->title}}</a></h4>
@@ -175,7 +181,7 @@
                   <li><a href="{{ url('/') }}">FAQ</a></li>
                 </ul>
               </li>
-              
+
               <li class="dropdown">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">Contact Us</a>
                 <ul class="dropdown-menu">
@@ -231,7 +237,7 @@
           <a href="javascript:void(0)" class="logo bottom30"><img src="{{asset("$foo->photo_id$foo->logo2")}}"" alt="logo"></a>
           <p class="bottom15">{{$foo->footer}}
           </p>
-         
+
           <ul class="social_share">
             <li><a href="{{$social[0]->twitter}}" class="twitter"><i class="icon-twitter-1"></i></a></li>
             <li><a href="{{$social[0]->facebook}}" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -308,8 +314,8 @@
     </div>
   </div>
 </div>
-<script src="{{ asset('js/jquery-2.1.4.js') }}"></script> 
-<script src="{{ asset('js/bootstrap.min.js') }}"></script> 
+<script src="{{ asset('js/jquery-2.1.4.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/bootsnav.js') }}"></script>
 <script src="{{ asset('js/jquery.parallax-1.1.3.js') }}"></script>
 <script src="{{ asset('js/jquery.appear.js') }}"></script>
@@ -317,7 +323,7 @@
 <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
 <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>
 <script src="{{ asset('js/range-Slider.min.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script> 
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/selectbox-0.2.min.js') }}"></script>
 <script src="{{ asset('js/zelect.js') }}"></script>
 <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
@@ -338,4 +344,3 @@ jQuery(document).ready(function($) {
 </script>
 </body>
 </html>
-

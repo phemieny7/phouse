@@ -190,12 +190,19 @@
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <ul class="feature_list">
-
+              @php
+                $yes1 = $featured->feature;
+                $yes2 = json_decode($yes1);
+              @endphp
+              <li>{{$yes2[0]->f1}}</li>
+              <li>{{$yes2[0]->f2}}</li>
             </ul>
           </div>
 
           <div class="col-md-6 col-sm-6">
-            
+            <ul class="feature_list">
+            <li>{{$yes2[0]->f3}}</li>
+            <li>{{$yes2[0]->f4}}</li>
             </ul>
           </div>
         </div>
